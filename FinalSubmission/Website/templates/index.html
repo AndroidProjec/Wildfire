@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildfire Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Wildfire Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="latitude">Latitude:</label>
+        <input type="text" name="latitude" required>
+
+        <label for="longitude">Longitude:</label>
+        <input type="text" name="longitude" required>
+
+        <label for="brightness">Brightness:</label>
+        <input type="text" name="brightness" required>
+
+        <label for="scan">Scan:</label>
+        <input type="text" name="scan" required>
+
+        <label for="track">Track:</label>
+        <input type="text" name="track" required>
+
+        <label for="confidence">Confidence:</label>
+        <input type="text" name="confidence" required>
+
+        <label for="bright_t31">Bright_T31:</label>
+        <input type="text" name="bright_t31" required>
+
+        <label for="frp">FRP:</label>
+        <input type="text" name="frp" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is not none %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
