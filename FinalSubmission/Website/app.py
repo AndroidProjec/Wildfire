@@ -29,7 +29,7 @@ def predict():
 
     # Ensure the input data has the same number of features as expected by the model (including 'daynight')
     if len(input_data) != 9:
-        return render_template('index.html', prediction="2 : Wildfire in other static land source")
+        return render_template('index.html', prediction="Error: Invalid number of features")
 
     # Add the 'daynight' feature (assumed to be a boolean value)
     input_data.append(request.form.get('daynight') == 'TRUE')
